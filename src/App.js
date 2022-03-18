@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import './styles/font-awesome.min.css'
+
+import React from 'react'
+
+import { BrowserRouter as Router } from "react-router-dom"
+import { AppRoutes } from './routes/AppRoutes';
+import StoreProvider from './Context/Provider'
+
+import { Header } from './components/pages/Header'
+import { Footer } from './components/pages/Footer';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <StoreProvider>
+          <script src="js/jquery.min.js"></script>
+            <script src="js/aos.js"></script>
+            <script src='js/bootstrap.min.js'></script>
+            <script src="js/owl.carousel.min.js"></script>
+            <script src="js/smoothscroll.js"></script>
+            <script src="js/custom.js"></script>
+          <Header />
+          <AppRoutes />
+          <Footer />
+
+        </StoreProvider>
+      </Router>
   );
 }
 
