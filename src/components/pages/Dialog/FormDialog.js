@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -8,8 +8,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import './Dialog.css'
 import Axios from 'axios'
+import Context from '../../../Context/Context';
+import { useNavigate } from 'react-router-dom'
 
 export function FormDialog(props) {
+  const { setAuth, setUser } = useContext(Context)
+  const navigate = useNavigate()
+
   const [editValues, setEditValues] = useState({
     id: props.id,
     name: props.name,
@@ -19,6 +24,11 @@ export function FormDialog(props) {
   });
 
   const handleEditUser = () => {
+    setUser({
+      emailUsuario: editValues.email,
+      senhaUsuario: editValues.senha
+    })
+
     Axios.put('http://localhost:3001/update', {
       id: editValues.id,
       name: editValues.name,
@@ -33,12 +43,11 @@ export function FormDialog(props) {
   const handleDeleteGame = () => {
     Axios.delete(`http://localhost:3001/delete/${editValues.id}`);
 
+    alert('Usuário removido!')
+    setAuth(false)
     handleClose()
+    navigate('/')
   }
-
-  const handleClickOpen = () => {
-    props.setOpen(true);
-  };
 
   const handleClose = () => {
     props.setOpen(false);

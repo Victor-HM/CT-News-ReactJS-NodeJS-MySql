@@ -7,7 +7,7 @@ import Axios from "axios";
 
 export function Perfil() {
   const { auth, setAuth, user, setUser } = useContext(Context);
-  const [usuario, setUsuario] = useState(user);
+  let [usuario, setUsuario] = useState(user);
 
   let navigate = useNavigate();
 
