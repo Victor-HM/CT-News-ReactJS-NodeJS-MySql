@@ -82,6 +82,15 @@ app.delete('/delete/:id', (req, res) => {
   })
 })
 
+app.post('/news', (req, res) => {
+  let SQL = "SELECT * from tbl_news_noticia"
+
+  db.query(SQL, (err, result) => {
+    if(err) console.log(err)
+    else res.send(result)
+  })
+})
+
 app.listen(3001, () => {
   console.log("Server rodando");
 });

@@ -204,9 +204,6 @@ a:focus {
   color: var(--white-color);
 }
 
-.section-padding {
-  padding: 8em 0;
-}
 .section-padding-half {
   padding: 4em 0;
 }
@@ -517,6 +514,7 @@ a:focus {
   border-radius: var(--border-radius-small);
   position: relative;
   overflow: hidden;
+  margin-bottom: 3rem;
 }
 
 .blog-header img {
@@ -527,6 +525,7 @@ a:focus {
 .blog-header-info {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
   position: absolute;
+  width: 100%;
   right: 0;
   left: 0;
   bottom: 0;
