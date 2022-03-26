@@ -12,6 +12,7 @@ Sistema de CRUD usando ReactJS, NodeJS e MySql
 - <b>Funcionalidade 4</b>: Atualizar dados da conta
 - <b>Funcionalidade 5</b>: Deletar conta
 - <b>Funcionalidade 6</b>: Visualizar todas notícias
+- <b>Funcionalidade 7</b>: Cadastro de notícias
 
 ## :wrench: Tecnologias utilizadas
 
@@ -19,9 +20,9 @@ Sistema de CRUD usando ReactJS, NodeJS e MySql
 - NodeJS;
 - MySql;
 
-## :soon: Implementação futura
+## :soon: Implementações futura
 
-- Cadastro de notícias
+- Entrar na rota de registrar noticia caso for um jornalista
 
 ## :handshake: Colaboradores
 

@@ -1,0 +1,43 @@
+input {
+  width: 92%;
+}
+
+.titulo {
+  height: 70%;
+  font-size: 36px;
+  font-family: "Plain-Regular", sans-serif;
+
+  text-align: center;
+}
+
+.sobreTitulo {
+  margin-left: 4%;
+  height: 90%;
+  font-size: 28px;
+  font-family: "Plain-Regular", sans-serif;
+}
+
+.submitNews {
+  width: 30%;
+}
+
+.submitNews button {
+  background: #ffffff;
+  width: 80%;
+  height: 2.8rem;
+  border-radius: 0.5rem;
+  border: solid #000 2px;
+  font-family: "Plain-Regular", sans-serif;
+  font-size: 1.1rem;
+  margin: 10px;
+  align-items: center;
+  margin-left: 125%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+.categoriaNews {
+  align-items: center;
+  margin-left: 30%;
+  font-size: 1em;
+}

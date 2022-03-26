@@ -32,9 +32,9 @@ export function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a href="project-detail.php" className="nav-link">
+              <Link to="/About" className="nav-link">
                 Quem Somos?
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/News" className="nav-link">

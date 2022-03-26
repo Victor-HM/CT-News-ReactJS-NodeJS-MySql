@@ -91,6 +91,20 @@ app.post('/news', (req, res) => {
   })
 })
 
+app.post('/registerNews', (req, res) => {
+  let { title } = req.body
+  let { subtitle } = req.body
+  let { categoria } = req.body
+  let { content } = req.body
+
+  let SQL = "INSERT INTO tbl_news_noticia (tituloNoticia, sobreTituloNoticia, conteudoNoticia, categoriaNews) VALUES (?, ?, ?, ?)";
+
+  db.query(SQL, [title, subtitle, categoria, content], (err, result) => {
+    if(err) console.log(err)
+    else res.send(result)
+  });
+})
+
 app.listen(3001, () => {
   console.log("Server rodando");
 });

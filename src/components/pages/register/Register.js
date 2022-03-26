@@ -13,14 +13,15 @@ export function Register() {
 		tipoUsuario: ''
 	})
 
-	let navigate = useNavigate()
-
+	
   const handleChangeValue = (value) => {
     setValues(prevValue => ({
       ...prevValue,
       [value.target.name]: value.target.value
     }))
   }
+	
+	let navigate = useNavigate()
 
   const handleRegister = () => {
 		const nome = values.nomeUsuario;
