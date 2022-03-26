@@ -29,7 +29,7 @@ Sistema de CRUD usando ReactJS, NodeJS e MySql
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a href="http://github.com/Victor-HM">
         <img src="https://avatars.githubusercontent.com/u/73660002?v=4" width="100px;" alt="Foto do Victor Hugo no GitHub"/><br>
         <sub>
           <b>Victor Hugo</b>
