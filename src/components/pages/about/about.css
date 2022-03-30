@@ -41,7 +41,7 @@
 	object-fit: cover;
 }
 
-.content
+.contentUser
 {
 	position: relative;
 	width: 100%;
@@ -52,7 +52,7 @@
 	padding-bottom: 30px;
 }
 
-.content .details
+.contentUser .details
 {
 	display: flex;
 	justify-content: center;
@@ -62,14 +62,14 @@
         margin-top: 500px;
 }
 
-.content .details h2
+.contentUser .details h2
 {
 	color: #444;
 	font-size: 1.5em;
 	font-weight: 500;
 }
 
-.content .details h2 span
+.contentUser .details h2 span
 {
 	font-size: 0.7em;
 	color: #03a9f4;

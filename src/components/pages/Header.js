@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Context from "../../Context/Context";
 
 export function Header() {
-
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
@@ -41,11 +40,9 @@ export function Header() {
                 Notícias
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/login" className="nav-link login">
-                Login
-              </Link>
-            </li>
+
+            {<TypeUser />}
+
             {<AuthHeader />}
           </ul>
         </div>
@@ -55,21 +52,21 @@ export function Header() {
 }
 
 function AuthHeader() {
-
   const { auth } = useContext(Context);
-  const [authe, setAuthe] = useState(auth)
+
+  const [authe, setAuthe] = useState(auth);
 
   useEffect(() => {
-    setAuthe(auth)
+    setAuthe(auth);
   }, [auth]);
 
   if (authe === true) {
     return (
-        <li className="nav-item">
-          <Link to="/perfil" className="nav-link register">
-            Perfil
-          </Link>
-        </li>
+      <li className="nav-item">
+        <Link to="/perfil" className="nav-link register">
+          Perfil
+        </Link>
+      </li>
     );
   } else {
     return (
@@ -78,6 +75,35 @@ function AuthHeader() {
           Cadastrar
         </Link>
       </li>
-    )
+    );
+  }
+}
+
+function TypeUser() {
+  
+  const { user, setUser } = useContext(Context)
+  const [usuario, setUsuario] = useState(user);
+
+  useEffect(() => {
+    setUsuario(user);
+  }, [user]);
+
+  if (usuario.tipoUsuario === "Jornalista") {
+    return(
+    <li className="nav-item">
+      <Link to="/registerNews" className="nav-link login">
+        Publicar Noticia
+      </Link>
+    </li>
+
+    );
+  } else {
+    return (
+    <li className="nav-item">
+      <Link to="/login" className="nav-link login">
+        Login
+      </Link>
+    </li>
+    );
   }
 }

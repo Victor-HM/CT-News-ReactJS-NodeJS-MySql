@@ -21,10 +21,15 @@ export function AppRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/News" element={<News />} />
         <Route path="/About" element={<About />} /> 
-        <Route path="/registerNews" element={<PrivateRoute redirectTo='/login'>
+
+        <Route path="/registerNews" element={
+        <PrivateRoute redirectTo='/login'>
           <RegisterNews />
-        </PrivateRoute>} />
-        <Route path="/perfil" element={<PrivateRoute redirectTo='/login'>
+        </PrivateRoute>} 
+        />
+
+        <Route path="/perfil" element={
+        <PrivateRoute redirectTo='/login'>
           <Perfil />
         </PrivateRoute>} />
     </Routes>

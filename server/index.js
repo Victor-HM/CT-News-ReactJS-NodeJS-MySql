@@ -91,15 +91,27 @@ app.post('/news', (req, res) => {
   })
 })
 
+app.post('/myNews', (req, res) => {
+
+  const { id } = req.body
+
+  let SQL = "SELECT * FROM tbl_news_noticia WHERE idUsuario = ?";
+
+  db.query(SQL, [id])
+})
+
 app.post('/registerNews', (req, res) => {
-  let { title } = req.body
-  let { subtitle } = req.body
-  let { categoria } = req.body
-  let { content } = req.body
+  const { title } = req.body
+  const { subtitle } = req.body
+  const { categoria } = req.body
+  const { content } = req.body
+  const { id } = req.body
+  const { nome } = req.body
+  const { email } = req.body
 
-  let SQL = "INSERT INTO tbl_news_noticia (tituloNoticia, sobreTituloNoticia, conteudoNoticia, categoriaNews) VALUES (?, ?, ?, ?)";
+  let SQL = "INSERT INTO tbl_news_noticia (tituloNoticia, sobreTituloNoticia, conteudoNoticia, categoriaNews, idUsuario, nomeUsuario, emailUsuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-  db.query(SQL, [title, subtitle, categoria, content], (err, result) => {
+  db.query(SQL, [title, subtitle, content, categoria, id, nome, email], (err, result) => {
     if(err) console.log(err)
     else res.send(result)
   });

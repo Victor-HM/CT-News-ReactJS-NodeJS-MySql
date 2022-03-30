@@ -26,7 +26,7 @@ export function About() {
         <div className="imgBxs">
           <img src={felipe} />
         </div>
-        <div className="content">
+        <div className="contentUser">
           <div className="details">
             <h2>
               Felipe Dourado<br></br>
@@ -56,7 +56,7 @@ export function About() {
         <div className="imgBxs">
           <img src="" />
         </div>
-        <div className="content">
+        <div className="contentUser">
           <div className="details">
             <h2>
               Gustavo Soares<br></br>
@@ -86,7 +86,7 @@ export function About() {
         <div className="imgBxs">
           <img src={samuel} />
         </div>
-        <div className="content">
+        <div className="contentUser">
           <div className="details">
             <h2>
               Samuel Batista<br></br>
@@ -116,7 +116,7 @@ export function About() {
         <div className="imgBxs">
           <img src={victor} />
         </div>
-        <div className="content">
+        <div className="contentUser">
           <div className="details">
             <h2>
               Victor Hugo<br></br>

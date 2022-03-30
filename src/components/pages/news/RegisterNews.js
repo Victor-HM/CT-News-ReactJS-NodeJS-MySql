@@ -1,53 +1,58 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Axios from 'axios';
-import './news.css'
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
+import "./news.css";
+import Context from "../../../Context/Context";
 
 export function RegisterNews() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const { user } = useContext(Context);
 
   const [values, setValues] = useState({
     tituloNews: "",
     sobretituloNews: "",
     categoriaNews: "",
     conteudoNews: "",
-  })
+  });
 
   const handleChangeValue = (value) => {
     setValues((prevValue) => ({
       ...prevValue,
-      [value.target.name]: value.target.value
-    }))
-  }
+      [value.target.name]: value.target.value,
+    }));
+  };
 
   const handleRegister = () => {
     const title = values.tituloNews;
-		const subtitle = values.sobretituloNews;
-		const categoria = values.categoriaNews;
-		const content = values.conteudoNews;
+    const subtitle = values.sobretituloNews;
+    const categoria = values.categoriaNews;
+    const content = values.conteudoNews;
 
-    if(title === '' || subtitle === '' || categoria === '' || content === '') {
-      alert('Preencha todos os campos')
+    if (title === "" || subtitle === "" || categoria === "" || content === "") {
+      alert("Preencha todos os campos");
     } else {
-      Axios.post('http://localhost:3001/registerNews', {
+      Axios.post("http://localhost:3001/registerNews", {
         title: values.tituloNews,
         subtitle: values.sobretituloNews,
         categoria: values.categoriaNews,
-        content: values.conteudoNews
+        content: values.conteudoNews,
+        id: user.idUsuario,
+        nome: user.nomeUsuario,
+        email: user.emailUsuario,
       }).then((response) => {
+        const message = response.request.statusText;
 
-        let message = response.data.message
+        if (message === "OK") {
+          alert("Noticia Cadastrada");
 
-        if(message = 'Usuario cadastrado') {
-					alert('noticia cadastrada')
-					navigate('/')
-				}else{
-					alert('Algo deu errado')
-				}
-      })
+          navigate("/");
+        } else {
+          alert("Algo deu Errado");
+        }
+      });
     }
-  }
-
+  };
 
   return (
     <div>
@@ -94,7 +99,11 @@ export function RegisterNews() {
       </section>
       <div className="categoriaNews">
         <label>Categoria: </label>
-        <select name="categoriaNews" id="categoriaNews" onChange={handleChangeValue}>
+        <select
+          name="categoriaNews"
+          id="categoriaNews"
+          onChange={handleChangeValue}
+        >
           <option value=""></option>
           <option value="Politica">Politica</option>
           <option value="Tempo">Tempo</option>
@@ -129,7 +138,14 @@ export function RegisterNews() {
         </div>
       </section>
       <div className="submitNews">
-        <button type="submit" name="cadastrar" value="Cadastrar" onClick={() => handleRegister()}>CRIAR NOTÍCIA</button>
+        <button
+          type="submit"
+          name="cadastrar"
+          value="Cadastrar"
+          onClick={() => handleRegister()}
+        >
+          CRIAR NOTÍCIA
+        </button>
       </div>
     </div>
   );

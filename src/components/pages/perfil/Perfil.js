@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FormDialog } from "../Dialog/FormDialog";
 import Context from "../../../Context/Context";
 import Axios from "axios";
+import { MyNews } from "./MyNews";
 
 export function Perfil() {
   const { auth, setAuth, user, setUser } = useContext(Context);
@@ -13,6 +14,7 @@ export function Perfil() {
 
   const handleExit = () => {
     setAuth(false);
+    setUser({})
     navigate("/");
   };
 
@@ -56,6 +58,7 @@ export function Perfil() {
         <div className="information">
           <div className="bar">
             <div className="content-bar">
+
               <button
                 id="news"
                 type="submit"
@@ -75,9 +78,38 @@ export function Perfil() {
             </div>
           </div>
 
-          <div className="content"></div>
+          <div className="content">
+            {<MyNews />}
+          </div>
         </div>
       </div>
     </>
   );
 }
+
+/* function ShowNews() {
+  const { user } = useContext(Context)
+  const [authNews, setAuthNews] = useState()
+
+  const News = () => {
+    Axios.post('http://localhost:3001/myNews', {
+      id: user.idUsuario
+    }).then((response) => {
+      const news = response
+      console.log(news)
+    })
+  }
+
+  if(user.tipoUsuario === 'Jornalista') {
+    return (
+      <button
+                id="news"
+                type="submit"
+                name="content"
+                onClick={() => News()}
+              >
+                Mostrar notícias
+              </button>
+    )
+  }
+} */
